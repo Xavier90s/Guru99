@@ -24,7 +24,7 @@ namespace Guru99
         [Test]
         public void Test()
         {
-            driver.Url = "http://www.google.co.in";
+            driver.Url = "http://www.google.com";
         }
 
         [TearDown]
