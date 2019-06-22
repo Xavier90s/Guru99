@@ -1,12 +1,7 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Firefox;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Guru99
 {
@@ -14,18 +9,17 @@ namespace Guru99
     {
 
         IWebDriver driver;
+        private string expectedtext= "Business Software Reviews, SaaS & Cloud Applications Directory | GetApp®";
 
         [SetUp]
-        public void StartBrowser()
+        public void OpenBrowserPage()
         {
             driver = new ChromeDriver();
+            driver.Url = "http://www.getapp.com";
         }
 
         [Test]
-        public void Test()
-        {
-            driver.Url = "http://www.google.com";
-        }
+        public void TestTitle() => Assert.AreEqual(expectedtext, driver.Title);
 
         [TearDown]
         public void CloseBrowser()
